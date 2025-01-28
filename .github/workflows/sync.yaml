@@ -1,5 +1,5 @@
 name: sync
-on:
+off:
   push:
     branches:
       - main
