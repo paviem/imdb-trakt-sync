@@ -149,9 +149,9 @@ func (c *Config) Validate() error {
 }
 
 func (c *Config) validateListIdentifiers(lids []string) error {
-	re := regexp.MustCompile(`^ls[0-9]{9,10}$`)
+	re := regexp.MustCompile(`^ls\d{9,10}$`)
 	for _, id := range lids {
-		if ok := re.MatchString(id); !ok {
+		if !re.MatchString(id) {
 			return fmt.Errorf("valid list id starts with ls and is followed by 9 or 10 digits, but got %s", id)
 		}
 	}
